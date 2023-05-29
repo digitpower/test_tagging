@@ -1,0 +1,28 @@
+
+name: Second Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  second_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Third Workflow
+        uses: ./.github/workflows/third.yml
+        # with:
+        #   my_input: ${{ secrets.MY_SECRET }}
+
+      - name: Step 7
+        run: 
+          echo "Running Step 7"
+          echo $my_output
+
+      - name: Step 8
+        run: echo "Running Step 8"
+
+      - name: Step 9
+        run: echo "Running Step 9"

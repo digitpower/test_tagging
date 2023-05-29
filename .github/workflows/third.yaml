@@ -28,6 +28,7 @@ jobs:
           git tag ${{steps.versioning.outputs.version}}
           git push origin ${{steps.versioning.outputs.version}}
           echo "Pushed tag ${{steps.versioning.outputs.version}}"
+          echo "::set-output name=my_output::${{steps.versioning.outputs.version}}"
           
 
 
