@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
 
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,7 +17,7 @@ jobs:
         with:
           releaseType: patch
           incrementPerCommit: false
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
 
       - name: Next Release Number
         run: echo ${{ steps.versioning.outputs.version }}
