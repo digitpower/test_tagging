@@ -24,6 +24,7 @@ jobs:
       - name: Tag release
         shell: bash
         run: |
+          echo ${{steps.versioning.outputs.version}}
           git tag ${{steps.versioning.outputs.version}}
           git push origin ${{steps.versioning.outputs.version}}
           echo "Pushed tag ${{steps.versioning.outputs.version}}"
