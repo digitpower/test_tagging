@@ -1,34 +1,27 @@
-name: Staging squirrel deploy
+name: Third Workflow
 
 on:
   push:
-    branches: [main]
-    
+    branches:
+      - main
+
 jobs:
-  deploy:
+  third_job:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Step 1
+        run: echo "Running Step 1"
 
-      - name: Auto Increment Semver Action
-        uses: MCKanpolat/auto-semver-action@1.0.5
-        id: versioning
-        with:
-          releaseType: patch
-          incrementPerCommit: false
-          github_token: ${{ secrets.TOKEN }}
+      - name: Step 2
+        run: echo "Running Step 2"
 
-      - name: Next Release Number
-        run: echo ${{ steps.versioning.outputs.version }}
+      - name: Step 3
+        run: echo "Running Step 3"
 
-      - name: Tag release
-        shell: bash
-        run: |
-          echo ${{steps.versioning.outputs.version}}
-          git tag ${{steps.versioning.outputs.version}}
-          git push origin ${{steps.versioning.outputs.version}}
-          echo "Pushed tag ${{steps.versioning.outputs.version}}"
-          echo "::set-output name=my_output::${{steps.versioning.outputs.version}}"
-          
+      - name: Set Output
+        id: output_step
+        run: echo "::set-output name=my_output::Hello World"
 
-
+    outputs:
+      my_output: ${{ steps.output_step.outputs.my_output }}

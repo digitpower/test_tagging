@@ -1,4 +1,3 @@
-
 name: Second Workflow
 
 on:
@@ -11,18 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: Run Third Workflow
-      #   uses: ./.github/workflows/third.yml
-        # with:
-        #   my_input: ${{ secrets.MY_SECRET }}
+      - name: Run Third Workflow
+        id: third_workflow
+        uses: ./.github/workflows/third.yml
 
       - name: Step 7
-        run: 
-          echo "Running Step 7"
-          echo $my_output
+        run: echo "Running Step 7"
 
       - name: Step 8
         run: echo "Running Step 8"
 
       - name: Step 9
         run: echo "Running Step 9"
+
+      - name: Access Third Workflow Output
+        run: 
+          echo "Third Workflow Output ${{ steps.third_workflow.outputs.my_output }}"

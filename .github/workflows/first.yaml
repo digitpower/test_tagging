@@ -11,10 +11,8 @@ jobs:
 
     steps:
       - name: Run Third Workflow
+        id: third_workflow
         uses: ./.github/workflows/third.yml
-        # with:
-        #   my_input: ${{ secrets.MY_SECRET }}
-        # run: echo $my_output
 
       - name: Step 4
         run: echo "Running Step 4"
@@ -24,3 +22,6 @@ jobs:
 
       - name: Step 6
         run: echo "Running Step 6"
+
+      - name: Access Third Workflow Output
+        run: echo "Third Workflow Output ${{ steps.third_workflow.outputs.my_output }}"
