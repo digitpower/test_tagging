@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: Run Third Workflow
-      #   uses: ./.github/workflows/third.yml
+      - name: Run Third Workflow
+        uses: ./.github/workflows/third.yml
         # with:
         #   my_input: ${{ secrets.MY_SECRET }}
+        # run: echo $my_output
 
       - name: Step 4
         run: echo "Running Step 4"
