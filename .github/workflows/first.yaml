@@ -10,18 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run Third Workflow
-        id: third_workflow
-        uses: ./.github/workflows/third.yml
+      - name: Step 1
+        run: echo "Running Step 1"
+
+      - name: Step 2
+        run: echo "Running Step 2"
+
+      # Add more steps as needed
+
+  second_job:
+    needs: first_job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 3
+        run: echo "Running Step 3"
 
       - name: Step 4
         run: echo "Running Step 4"
 
-      - name: Step 5
-        run: echo "Running Step 5"
-
-      - name: Step 6
-        run: echo "Running Step 6"
-
-      - name: Access Third Workflow Output
-        run: echo "Third Workflow Output ${{ steps.third_workflow.outputs.my_output }}"
+      # Add more steps as needed
