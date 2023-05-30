@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Calculate tag
-        run: echo "Calculate tag"
+        run: echo "::set-output name=my_output::Tag Calculated in Tagging Step"
       # Add more steps as needed
 
   second_job:
@@ -20,6 +20,6 @@ jobs:
 
     steps:
       - name: Start Second Job
-        run: echo `date` "Start Second Job"
+        run: echo "Tagging output ${{ needs.first_job.outputs.my_output }}"
 
       # Add more steps as needed
