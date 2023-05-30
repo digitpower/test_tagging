@@ -6,27 +6,20 @@ on:
       - main
 
 jobs:
-  first_job:
+  tagging_job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step 1
-        run: echo "Running Step 1"
-
-      - name: Step 2
-        run: echo "Running Step 2"
-
+      - name: Calculate tag
+        run: echo "Calculate tag"
       # Add more steps as needed
 
-  second_job:
-    needs: first_job
+  tag_job:
+    needs: tagging_job
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step 3
-        run: echo "Running Step 3"
-
-      - name: Step 4
-        run: echo "Running Step 4"
+      - name: Start Second Job
+        run: echo "Start Second Job"
 
       # Add more steps as needed

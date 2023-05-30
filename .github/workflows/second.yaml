@@ -6,14 +6,10 @@ on:
       - main
 
 jobs:
-  second_job:
+  tag_job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step 5
-        run: echo "Running Step 5"
-
-      - name: Step 6
-        run: echo "Running Step 6"
-
+      - name: Inside Second File
+        run: echo "Inside Second File"
       # Add more steps as needed
