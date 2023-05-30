@@ -20,6 +20,6 @@ jobs:
 
     steps:
       - name: Start Second Job
-        run: echo `date "Start Second Job"
+        run: echo `date` "Start Second Job"
 
       # Add more steps as needed
