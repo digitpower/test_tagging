@@ -11,5 +11,5 @@ jobs:
 
     steps:
       - name: Inside Second File
-        run: echo date "Inside Second File"
+        run: echo `date` "Inside Second File"
       # Add more steps as needed
